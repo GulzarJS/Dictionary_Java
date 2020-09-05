@@ -51,6 +51,7 @@ public class Dictionary {
 
         // Getting wanted word from user
         System.out.print("Enter the word: ");
+
         word = scanner.next();
 
         // Searching translation in dictionaries
@@ -108,17 +109,17 @@ public class Dictionary {
     }
 
     // For adding new words to dictionaries
-    public static void addDictionary(Map<String, String> dict, String word, String translation){
-        dict.put(word,translation);
+    public static void addDictionary(Map<String, String> dictionary, String word, String translation){
+        dictionary.put(word,translation);
     }
 
     // For getting translations of wanted words
-    public static boolean getTranslation(Map<String, String> dict_1, Map<String, String> dict_2, String word){
-        if(dict_1.containsKey(word)) {
-            System.out.println("Translation: " + dict_1.get(word));
+    public static boolean getTranslation(Map<String, String> dictionary_1, Map<String, String> dictionary_2, String word){
+        if(dictionary_1.containsKey(word)) {
+            System.out.println("Translation: " + dictionary_1.get(word));
             return true;
-        }else if (dict_2.containsKey(word)) {
-            System.out.println("Translation: " + dict_2.get(word));
+        }else if (dictionary_2.containsKey(word)) {
+            System.out.println("Translation: " + dictionary_2.get(word));
             return true;
         } else {
             System.out.println("The word you are looking for does not exist in the dictionary");
