@@ -2,7 +2,7 @@
  * Created by Gulzar Safar on 9/5/2020
  *
  * The purpose of this program is provide users with Azerbaijani-English and English-Azerbaijani dictionary
- * User can look for translations of wanted words.
+ * Users can look for translations of wanted words.
  * If translations of wanted words don't exist in dictionaries, users can add new translations.
  *
  */
@@ -28,10 +28,11 @@ public class Dictionary {
         fillDictionary(enAzMap,en,az);
 
         // Printing dictionaries (just to be sure of the result)
-//        System.out.println("Azerbaijani-English Dictionary:");
-//        printDictionary(azEnMap);
-//        System.out.println("English-Azerbaijani Dictionary");
-//        printDictionary(enAzMap);
+/*        System.out.println("Azerbaijani-English Dictionary:");
+          printDictionary(azEnMap);
+          System.out.println("English-Azerbaijani Dictionary");
+          printDictionary(enAzMap);
+ */
 
         // For getting input from users
         Scanner scanner = new Scanner(System.in);
@@ -48,18 +49,26 @@ public class Dictionary {
         // String for defining language of word
         String lang;
 
-
+        // Getting wanted word from user
         System.out.print("Enter the word: ");
         word = scanner.next();
 
+        // Searching translation in dictionaries
+        // When it does not exist, add it to dictionaries if user wants
         if(!getTranslation(azEnMap, enAzMap, word)){
+
             System.out.print("Do you want to add this word to dictionary? (yes/no): ");
             answer = scanner.next();
+
             if(answer.equals("yes")){
+
+                // Getting translation and language of new word from user
                 System.out.println("Enter translation of this word: ");
                 translation = scanner.next();
                 System.out.println("What language is this word? (az/en): ");
                 lang = scanner.next();
+
+                // Adding new word and its translation to dictionary according to the language
                 if(lang.equals("az")){
                     addDictionary(azEnMap, word, translation);
                     addDictionary(enAzMap, translation, word);
@@ -76,11 +85,12 @@ public class Dictionary {
             }
         }
 
-          // Printing dictionaries (just to be sure of the result)
-//        System.out.println("Azerbaijani-English Dictionary:");
-//        printDictionary(azEnMap);
-//        System.out.println("English-Azerbaijani Dictionary");
-//        printDictionary(enAzMap);
+        // Printing dictionaries (just to be sure of the result)
+/*        System.out.println("Azerbaijani-English Dictionary:");
+          printDictionary(azEnMap);
+          System.out.println("English-Azerbaijani Dictionary");
+          printDictionary(enAzMap);
+ */
 
 
     }
@@ -123,9 +133,6 @@ public class Dictionary {
             System.out.println(key + " = " + dictionary.get(key));
         }
     }
-
-
-
 
 
 }
